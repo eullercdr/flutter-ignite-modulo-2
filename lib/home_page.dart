@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,27 +17,18 @@ class HomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Card(
-              child: ListTile(
-            title: Text('Notes'),
-          )),
-          Card(
-              child: ListTile(
-            title: Text('Notes'),
-          )),
-          Card(
-              child: ListTile(
-            title: Text('Notes'),
-          )),
-          Card(
-              child: ListTile(
-            title: Text('Notes'),
-          ))
+          for (var i = 0; i < count; i++)
+            Card(
+                child: ListTile(
+              title: Text('Notes'),
+            ))
         ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("Clicou");
+          setState(() {
+            count++;
+          });
         },
         child: Icon(Icons.add),
       ),
