@@ -15,14 +15,16 @@ class _HomePageState extends State<HomePage> {
         title: Text('NOTES'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          for (var i = 0; i < count; i++)
-            Card(
-                child: ListTile(
-              title: Text('Notes'),
-            ))
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            for (var i = 0; i < count; i++)
+              Card(
+                  child: ListTile(
+                title: Text('Notes'),
+              ))
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
