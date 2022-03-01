@@ -24,9 +24,7 @@ class _CreateNotePageState extends State<CreateNotePage> {
               TextField(
                 maxLines: 10,
                 maxLength: 500,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                ),
+                decoration: InputDecoration(),
                 onChanged: (value) => {
                   setState(() {
                     description = value;
@@ -34,7 +32,11 @@ class _CreateNotePageState extends State<CreateNotePage> {
                 },
               ),
               if (description.isNotEmpty)
-                ElevatedButton(onPressed: () {}, child: Text('Salvar'))
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context, description);
+                    },
+                    child: Text('Salvar'))
             ],
           ),
         ));
