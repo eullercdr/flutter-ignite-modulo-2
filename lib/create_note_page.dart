@@ -27,9 +27,14 @@ class _CreateNotePageState extends State<CreateNotePage> {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                 ),
-                onChanged: (value) => {print(value)},
+                onChanged: (value) => {
+                  setState(() {
+                    description = value;
+                  })
+                },
               ),
-              ElevatedButton(onPressed: () {}, child: Text('Salvar'))
+              if (description.isNotEmpty)
+                ElevatedButton(onPressed: () {}, child: Text('Salvar'))
             ],
           ),
         ));
