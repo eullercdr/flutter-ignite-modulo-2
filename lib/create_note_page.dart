@@ -39,27 +39,36 @@ class _CreateNotePageState extends State<CreateNotePage> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(32.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
                 controller: textController,
                 maxLines: 10,
                 maxLength: 500,
-                decoration: InputDecoration(),
+                decoration: InputDecoration(labelText: "Descrição"),
                 onChanged: (value) => {
                   setState(() {
                     description = value;
                   })
                 },
               ),
+              SizedBox(height: 32),
               if (description.isNotEmpty)
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context, description);
-                    },
-                    child: Text('Salvar'))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 300,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context, description);
+                          },
+                          child: Text('Salvar')),
+                    ),
+                  ],
+                )
             ],
           ),
         ));
