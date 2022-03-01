@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/create_note_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,12 +28,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            notes.add("Item ${notes.length}");
-          });
-        },
         child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CreateNotePage(),
+              ));
+        },
       ),
     );
   }
