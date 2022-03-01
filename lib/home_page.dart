@@ -22,6 +22,15 @@ class _HomePageState extends State<HomePage> {
               Card(
                   child: ListTile(
                 title: Text(notes[i]),
+                onTap: () async {
+                  var description = await Navigator.pushNamed(
+                      context, "/create-note",
+                      arguments: notes[i]);
+                  if (description != null) {
+                    notes[i] = description as String;
+                    setState(() {});
+                  }
+                },
               ))
           ],
         ),
