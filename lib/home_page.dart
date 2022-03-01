@@ -6,7 +6,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var count = 0;
+  var notes = <String>["Primeiro Item"];
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,10 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < notes.length; i++)
               Card(
                   child: ListTile(
-                title: Text('Notes'),
+                title: Text(notes[i]),
               ))
           ],
         ),
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            count++;
+            notes.add("Item ${notes.length}");
           });
         },
         child: Icon(Icons.add),
