@@ -6,6 +6,8 @@ class CreateNotePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Create Note'),
+        centerTitle: true,
+        actions: [IconButton(icon: Icon(Icons.delete), onPressed: () {})],
       ),
     );
   }
