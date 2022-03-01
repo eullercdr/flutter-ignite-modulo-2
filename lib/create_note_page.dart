@@ -9,6 +9,13 @@ class CreateNotePage extends StatelessWidget {
         centerTitle: true,
         actions: [IconButton(icon: Icon(Icons.delete), onPressed: () {})],
       ),
+      body: TextField(
+        maxLines: 10,
+        maxLength: 500,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+        ),
+      ),
     );
   }
 }
