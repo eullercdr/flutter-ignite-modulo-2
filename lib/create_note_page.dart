@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
-class CreateNotePage extends StatelessWidget {
+class CreateNotePage extends StatefulWidget {
+  @override
+  _CreateNotePageState createState() => _CreateNotePageState();
+}
+
+class _CreateNotePageState extends State<CreateNotePage> {
+  var description = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +27,7 @@ class CreateNotePage extends StatelessWidget {
                 decoration: InputDecoration(
                   border: InputBorder.none,
                 ),
+                onChanged: (value) => {print(value)},
               ),
               ElevatedButton(onPressed: () {}, child: Text('Salvar'))
             ],
